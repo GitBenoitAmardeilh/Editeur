@@ -1,0 +1,24 @@
+
+#headerLeftMenu #containt #palette{
+    
+    display: flex;
+    
+}
+
+#headerLeftMenu #containt #palette div{
+    
+    flex: 1;
+    
+}
+
+#headerLeftMenu #divBackground #palette li{
+    
+    height: 30px;
+    
+}
+
+#divBackground{ border-left:2px solid orange; box-shadow:2px 2px 5px orange; }
+#divSyntaxe{ border-left:2px solid yellow; box-shadow:2px 2px 5px yellow; }
+#divMenu{ border-left:2px solid green; box-shadow:2px 2px 5px green; }
+#divInteract{ border-left:2px solid blue; box-shadow:2px 2px 5px blue; }
+#divHelp{ border-left:2px solid red; box-shadow:2px 2px 5px red; }

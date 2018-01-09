@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'DancingScriptRegular';
+    src: url('font/DancingScriptRegular.otf') format("opentype");
+}
+
+.divContainOption{ width:280px; }
+
+.DancingScriptRegular{ font-family:DancingScriptRegular; }
+.arial{ font-family:Arial; }
+.timeNewRoman{ font-family: 'Times New Roman'; }
