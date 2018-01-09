@@ -3,8 +3,8 @@
     src: url('font/DancingScriptRegular.otf') format("opentype");
 }
 
-.divContainOption{ width:280px; }
+.divContainOption, .divContainOptionIframe{ width:280px; resize:vertical;}
 
 .DancingScriptRegular{ font-family:DancingScriptRegular; }
-.arial{ font-family:Arial; }
-.timeNewRoman{ font-family: 'Times New Roman'; }
+.Arial{ font-family:Arial; }
+.TimeNewRoman{ font-family: 'Times New Roman'; }

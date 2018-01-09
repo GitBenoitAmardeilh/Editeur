@@ -84,20 +84,20 @@ $namePage = 'Accueil';
                                 <h2>Paragraphes</h2>
                             </div>
                             
-                            <div id="mainPoliceSite" class="divContainOption" ondragstart="dragStart(event)" draggable="true">
-                                <p id="DancingScriptRegular" class="paraPolice">Bonjour je suis un paragraphe ayant la police DancingScriptRegular</p>
+                            <div id="mainPoliceSite" class="divContainOption" draggable="true">
+                                <p id="ParaDancingScriptRegular" class="paraPolice">Bonjour je suis un paragraphe ayant la police DancingScriptRegular</p>
                             </div>
                             
-                            <div id="timeNewRoman" class="divContainOption" ondragstart="dragStart(event)" draggable="true">
-                                <p id="timeNewRoman" class="paraPolice">Bonjour je suis un paragraphe ayant la police Time new roman</p>
+                            <div id="timeNewRomana" class="divContainOption" draggable="true">
+                                <p id="ParaTimeNewRoman" class="paraPolice">Bonjour je suis un paragraphe ayant la police Time new roman</p>
                             </div>
                             
                             <div>
                                 <h2>Titres</h2>
                             </div>
 
-                            <div id="secondPoliceSite" class="divContainOption" ondragstart="dragStart(event)" draggable="true">
-                                <p id="arial" class="paraPolice">Aurevoir</p>
+                            <div id="secondPoliceSite" class="divContainOption" draggable="true">
+                                <p id="ParaArial" class="paraPolice">Aurevoir</p>
                             </div>
                                 
 
@@ -140,6 +140,7 @@ $namePage = 'Accueil';
         </div>
         
         <aside><iframe id="ifrm"></iframe></aside>
+        
         <script src="js/javascript.js"></script>
         <script src="js/menu.js"></script>
         
