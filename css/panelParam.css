@@ -1,0 +1,57 @@
+#headerRightMenu{
+    position: fixed;
+    right: 0;
+    top:65px;
+    
+    background-color:rgb(230,230,230);
+    border-top:1px solid rgb(150,150,150);
+    border-left:1px solid rgb(150,150,150);
+    border-bottom:1px solid rgb(150,150,150);
+    
+    border-radius: 10px 0 0 10px;
+}
+
+#headerRightMenu p{
+    margin:0;
+}
+
+#headerRightMenu img{
+    width:30px;
+    float: right;
+}
+
+#headerRightMenu #imgActiveParam:hover{
+    cursor:pointer;
+}
+
+
+
+#divContainParam{
+    overflow: hidden;
+    width:200px;
+    height: 300px;
+    border-top:1px solid rgb(200,200,200);
+    border-bottom:1px solid rgb(200,200,200);
+}
+
+
+#divParamTexte ul{
+    
+    text-align: left;
+    margin:0;
+    padding: 5px 0 5px 15px;
+    
+}
+
+#divParamTexte li{
+    display: inline-block;
+    list-style-type: none;
+}
+
+#divParamTexte select{
+    
+    background-color: rgb(210,210,210);
+    border:1px solid rgb(180,180,180);
+    outline:  none;
+    border-radius: 5px 5px 1px 1px;    
+}

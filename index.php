@@ -9,7 +9,8 @@ $namePage = 'Accueil';
         
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/index.css"/>
-        <link rel="stylesheet" href="css/couleurPalette.css"/>
+        <link rel="stylesheet" href="css/panelColor.css"/>
+        <link rel="stylesheet" href="css/panelParam.css"/>
         <link rel="stylesheet" href="css/panelPolice.css"/>
         <link rel="stylesheet" href="css/police.css"/>
         
@@ -139,10 +140,58 @@ $namePage = 'Accueil';
 
         </div>
         
+        <div id="headerRightMenu">
+                
+            <p><img src="img/parametre.png" id="imgActiveParam"></p>
+            
+            <div id="divContainParam">
+            
+                <div id="divParamTexte">
+                
+                    <ul>
+                    
+                        <li>
+                        
+                           <select name="selectPolice" id="selectPolice">
+                               <option value="france">Normal</option>
+                               <option value="france">Gras</option>
+                               <option value="espagne">Italic</option>
+                               <option value="italie">Souligné</option>
+                           </select>
+                        
+                        </li>
+                        
+                        <li>
+                        
+                           <select name="selectWidth" id="selectWidth">
+                               <option value="10">10</option>
+                               <option value="12">12</option>
+                               <option value="14">14</option>
+                               <option value="16">16</option>
+                               <option value="18">18</option>
+                               <option value="20">20</option>
+                               <option value="22">22</option>
+                               <option value="24">24</option>
+                               <option value="26">26</option>
+                               <option value="28">28</option>
+                           </select>
+                        
+                        </li>
+                    
+                    </ul>
+                
+                </div>
+            
+            
+            </div>
+            
+        </div>
+        
         <aside><iframe id="ifrm"></iframe></aside>
         
         <script src="js/javascript.js"></script>
         <script src="js/menu.js"></script>
+        <script src="js/panelParam.js"></script>
         
     </body>
 </html>
