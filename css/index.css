@@ -20,8 +20,6 @@ iframe{
     height: 100%;
 }
 
-.divContainOption{ width:280px; resize:vertical;}
-
 /*********************************************
 *********************************************/
 
@@ -59,6 +57,10 @@ iframe{
     position: relative;
     z-index: 1;
     background-color: rgba(0,98,230,0.5);
+    margin: 0;
+    padding:0;
+    height: 50px;
+    box-shadow: 0 2px 2px rgb(150,150,150);
 }
 
 #headerMainMenu p{
@@ -68,13 +70,6 @@ iframe{
     padding:0 10px 0 10px;
 }
 
-#headerMainMenu {
-    margin: 0;
-    padding:0;
-    height: 50px;
-    box-shadow: 0 2px 2px rgb(150,150,150);
-}
-
 #headerMainMenu div{
     display: inline-block;
 }
@@ -82,13 +77,13 @@ iframe{
 /***********************************************/
 
 #headerLeftMenu{
+    
     position: fixed;
     z-index: 2;
-    margin-top:20px;
 }
 
 #headerLeftMenu ul{
-
+    
     padding: 0;
 }
 
@@ -128,5 +123,64 @@ iframe{
     
     margin-top:5px;
     
+}
+
+#headerLeftMenu div h2{
+    
+    font-size: 15px;
+    color:rgb(100,100,100);
+    border-bottom: 1px solid rgb(100,100,100);
+    padding: 5px 5px 5px 15px;
+}
+
+#headerLeftMenu li > div{
+
+    display:none;
+    background-color: rgb(230,230,230);
+    
+    border-radius: 0 10px 10px 0;
+    
+    position: absolute;
+    top:15px;
+    z-index: 1;
+    margin-left:82px;
+    height:400px;
+}
+
+#headerLeftMenu #title{
+    border-bottom:1px solid rgb(200,200,200);
+    /* overflow: hidden; */
+    height:40px;
+    line-height: 40px;
+}
+
+#headerLeftMenu #title h1{
+    float:left;
+    font-size: 20px;
+    border-radius: 0 10px 0 0;
+    margin:0 0 0 20px;
+}
+
+#headerLeftMenu #title p{
+    text-align: center;
+    float:right;
+    height: inherit;
+    margin:0;
+    width: 40px;
+}
+
+#headerLeftMenu #title a{
+    display:block;
+    color:black;
+    text-decoration: none;
+}
+
+#headerLeftMenu #title a:hover{
+    background-color: rgba(0,98,230,0.1);
+}
+
+#headerLeftMenu #title #btnClose{
+    border-radius: 0 10px 0 0;
+    font-size: 22px;
 }
 

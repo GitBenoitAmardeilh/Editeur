@@ -3,9 +3,12 @@
     src: url('font/DancingScriptRegular.otf') format("opentype");
 }
 
-.divContainOptionIframe{ width:280px; position: relative; z-index: 1;}
-.divContainOptionIframe p{ margin: 0; z-index: 3; }
-
 .DancingScriptRegular{ font-family:DancingScriptRegular; }
 .Arial{ font-family:Arial; }
 .TimeNewRoman{ font-family: 'Times New Roman'; }
+
+.divContainOptionPolice{
+    width:280px; 
+    position: relative; 
+    z-index: 1;
+}

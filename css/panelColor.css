@@ -1,17 +1,20 @@
+#containtColor{
+    width:300px;
+}
 
-#headerLeftMenu #containt #palette{
+#containtColor #palette{
     
     display: flex;
     
 }
 
-#headerLeftMenu #containt #palette div{
+#containtColor #palette div{
     
     flex: 1;
     
 }
 
-#headerLeftMenu #divBackground #palette li{
+#containtColor li{
     
     height: 30px;
     

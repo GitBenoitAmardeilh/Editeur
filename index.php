@@ -52,13 +52,13 @@ $namePage = 'Accueil';
                             
                         </div>
                         
-                        <div id="containt">
+                        <div id="containtColor">
                             
                             <div>
                                 <h2>Liste de couleurs</h2>
                             </div>
                             
-                            <div id="palette" class="divContainOption">
+                            <div id="palette" class="divContainOptionColor">
                             
                             
                             </div>
@@ -81,15 +81,15 @@ $namePage = 'Accueil';
                         
                         <div id="containtOptions">
                             
-                            <div>
+                            <div id="parrer">
                                 <h2>Paragraphes</h2>
                             </div>
                             
-                            <div id="mainPoliceSite" class="divContainOption" draggable="true">
+                            <div id="divDancingScriptRegular" class="divContainOptionPolice" draggable="true">
                                 <p id="ParaDancingScriptRegular" class="paraPolice">Bonjour je suis un paragraphe ayant la police DancingScriptRegular</p>
                             </div>
                             
-                            <div id="timeNewRomana" class="divContainOption" draggable="true">
+                            <div id="divTimeNewRoman" class="divContainOptionPolice" draggable="true">
                                 <p id="ParaTimeNewRoman" class="paraPolice">Bonjour je suis un paragraphe ayant la police Time new roman</p>
                             </div>
                             
@@ -97,7 +97,7 @@ $namePage = 'Accueil';
                                 <h2>Titres</h2>
                             </div>
 
-                            <div id="secondPoliceSite" class="divContainOption" draggable="true">
+                            <div id="divArial" class="divContainOptionPolice" draggable="true">
                                 <p id="ParaArial" class="paraPolice">Aurevoir</p>
                             </div>
                                 
