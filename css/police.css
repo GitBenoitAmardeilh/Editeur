@@ -6,9 +6,3 @@
 .DancingScriptRegular{ font-family:DancingScriptRegular; }
 .Arial{ font-family:Arial; }
 .TimeNewRoman{ font-family: 'Times New Roman'; }
-
-.divContainOptionPolice{
-    width:280px; 
-    position: relative; 
-    z-index: 1;
-}

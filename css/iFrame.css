@@ -1,9 +1,9 @@
-#divSyntaxe{
-    margin:auto;
-}
 .divContainOptionPolice{
-    width: 280px;
+    position: absolute;
+    border:1px solid white;
+    width:280px;
     height: 50px;
+
 }
 
 .divContainOptionPolice p{

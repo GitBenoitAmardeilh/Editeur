@@ -2,10 +2,11 @@ var ifrm = document.getElementById('ifrm').contentDocument;
 ifrm.oncontextmenu = new Function("return false");
 ifrm.designMode = 'on';
 
-const ID_DIV_IN_IFRAME = 'divContainOptionIframe';
-
+const ID_DIV_IFRAME = 'divContainOptionIframe';
 const CLASS_DIV_MENU = 'divContainOptionPolice';
-const CLASS_DIV_IFRAME = 'divContainOptionIframe';
+
+const HEADER_HEIGHT = document.getElementById('headerMainMenu').offsetHeight;
+const DIV_MENU_LEFT_HEIGHT = document.getElementById('headerLeftMenu').offsetWidth;
 
 /* -----------------------------------------------*/
 
@@ -13,6 +14,7 @@ const CLASS_DIV_IFRAME = 'divContainOptionIframe';
     
     var styleFile = document.createElement("Link");
     var styleFilePolice = document.createElement("Link");
+    var styleFileIframe = document.createElement("Link");
     
     styleFile.setAttribute("rel", "stylesheet");
     styleFile.setAttribute("type", "text/css");
@@ -22,9 +24,14 @@ const CLASS_DIV_IFRAME = 'divContainOptionIframe';
     styleFilePolice.setAttribute("type", "text/css");
     styleFilePolice.setAttribute("href", "css/police.css");  
     
+    styleFileIframe.setAttribute("rel", "stylesheet");
+    styleFileIframe.setAttribute("type", "text/css");
+    styleFileIframe.setAttribute("href", "css/iFrame.css"); 
+    
     
     ifrm.head.appendChild(styleFile);
     ifrm.head.appendChild(styleFilePolice);
+    ifrm.head.appendChild(styleFileIframe);
     
     var arrayPolice = [
         'DancingScriptRegular',
@@ -39,9 +46,44 @@ const CLASS_DIV_IFRAME = 'divContainOptionIframe';
         para.className = arrayPolice[i];
         para.style.fontSize = "20px";
         
-        // para.parentNode.id = 'blcDivSize'+''+i;
-        
     } 
+    
+    /*------------------------------------------------
+                     LISTES DIV SITE
+    -------------------------------------------------*/
+
+    var divContain = document.getElementsByClassName(CLASS_DIV_MENU);
+
+    for(var i = 0 ; i < divContain.length  ; i++){
+
+        divContain[i].addEventListener('dragstart', function(e){
+            
+            e.dataTransfer.setData('text/plain', e.target.id);
+            initDragImg( e , e.target.id);
+
+        },false);
+
+    }
+    
+    /*------------------------------------------------
+                     LISTES DIV IFRAME
+    -------------------------------------------------*/
+
+    function listDivIframe(){
+        
+        var arrayDivIframe = ifrm.getElementsByClassName(CLASS_DIV_MENU);
+        
+        for( var i = 0 ; i < arrayDivIframe.length ;i++){
+            
+            arrayDivIframe[i].addEventListener('click', function(e){
+
+                e.currentTarget.style.border = '1px solid blue';
+
+            },false);   
+            
+        }
+        
+    }
     
     /*------------------------------------------------
                     DRAG & DROP 
@@ -52,65 +94,10 @@ const CLASS_DIV_IFRAME = 'divContainOptionIframe';
     var MouseXIframe; // position de la souris dans l'iframe
     var MouseYIframe;
     
-    /*
-    var initMouseX; // position de la souris au clic sur le div
-    var initMouseY;
-        
-    var initXValueDiv; // position de l'élément au départ
-    var initYValueDiv;
+    var posImgX; // position de la souris dans une div du sous menu
+    var posImgY;
     
-    var idEnCours; // id du div qui est en cours de modif
-    var initClick = false; // si on est en train de cliquer
-    
-    var borderLeft = false; // si on a cliqué sur un bord gauche
-    var borderRight = false; // si on a cliqué sur un bord droit
-    var borderTop = false; // si on a cliqué sur un bord haut
-    var borderBottom = false; // si on a cliqué sur un bord bas
-    
-    function initPositionDiv( e , id ){
-        
-        idEnCours = id;
-        initClick = true;
-
-        // Sauvegarde de la position initiale
-        posX = document.getElementById(id).offsetLeft;
-        posY = document.getElementById(id).offsetTop;
-
-        initXValueDiv = document.getElementById(id).offsetLeft;
-        initYValueDiv = document.getElementById(id).offsetTop;
-
-        initMouseX = e.clientX;
-        initMouseY = e.clientY; 
-            
-    }
-    
-    function mouseMoveIframe( e ){
-        
-        //console.log(ifrm.getElementById(idEnCours).style.height);
-        
-        if(initClick){
-            
-            posX = document.getElementById(idEnCours).offsetLeft;
-            posY = document.getElementById(idEnCours).offsetTop;
-            
-            posiY = (initMouseY - initYValueDiv);
-
-            document.getElementById(idEnCours).style.left = e.clientX - (initMouseX - initXValueDiv) - 30;
-            document.getElementById(idEnCours).style.top = e.clientY - (initMouseY - initYValueDiv) - 30;
-
-        }
-        
-    }
-    
-    function endInitDDObjet(){
-        
-        initClick = false;
-        borderLeft = false;
-        borderRight = false;
-        borderTop = false;
-        borderBottom = false;
-        
-    }*/
+    var img; // Contient l'image générée lors du drop
 
     function positionMouseIframe( e ){
         
@@ -119,45 +106,19 @@ const CLASS_DIV_IFRAME = 'divContainOptionIframe';
             
     }
     
+    function positionMouseInDiv( e , id ){
+        
+        posImgX = e.clientX - DIV_MENU_LEFT_HEIGHT - 11; // -1 est la marge du sous menu et - 10 le padding
+        posImgY = e.clientY - HEADER_HEIGHT - document.getElementById(id).offsetTop - 15;
+            
+    }
+    
     function initDragImg( e , id ){
         
-        var img = new Image();
-            img.src = 'img/imgDrag.png';
-        
-        // Sauvegarde de la position initiale
-        posImgX = document.getElementById(id).offsetLeft;
-        posImgY = document.getElementById(id).offsetTop;
-        
-        var HEIGHT_DIV_POLICE = document.querySelector('#mainPoliceSite').offsetTop;
-        var HEIGHT_H1 = document.querySelector('#divSyntaxe').firstElementChild.clientHeight;
-        var HEIGHT_H2 = document.querySelector('#parrer').clientHeight;
-        
-        pSourie = HEIGHT_DIV_POLICE + HEIGHT_H1 + HEIGHT_H2;
-        
-        console.log('HEIGHT =>   div : '+HEIGHT_DIV_POLICE+' h1 : '+HEIGHT_H1+' h2 : '+HEIGHT_H2);
-        console.log('Position => divY :'+posImgY+' sY : '+e.clientY+' total : '+pSourie);
-        
-        // e.dataTransfer.setDragImage(img,10,0);
+        positionMouseInDiv( e , id )
+        e.dataTransfer.setDragImage(img ,posImgX,posImgY);
         
     }
-    
-    /**************************************************
-                    LISTES DIV SITE
-    **************************************************/
-
-    var divContain = document.getElementsByClassName(CLASS_DIV_MENU);
-
-    for(var i = 0 ; i < divContain.length  ; i++){
-
-        divContain[i].addEventListener('dragstart', function(e){
-            
-            e.dataTransfer.setData('text/plain', e.target.id);
-
-        },false);
-
-    }
-    
-    /*****************************************************/
     
     
     ifrm.addEventListener('dragover', function(e){
@@ -174,12 +135,23 @@ const CLASS_DIV_IFRAME = 'divContainOptionIframe';
         
         ifrm.body.appendChild(document.getElementById(data).cloneNode(true));
         
-        newIdDiv = ID_DIV_IN_IFRAME+''+nbDivDrop
+        newIdDiv = ID_DIV_IFRAME+''+nbDivDrop
         ifrm.getElementById(data).setAttribute('id', newIdDiv);
         nbDivDrop++;
            
-        ifrm.getElementById(newIdDiv).style.top = MouseYIframe - 30;
-        ifrm.getElementById(newIdDiv).style.left = MouseXIframe - 30;
+        ifrm.getElementById(newIdDiv).style.left = MouseXIframe - posImgX;
+        ifrm.getElementById(newIdDiv).style.top = MouseYIframe - posImgY;
+        
+        listDivIframe();
+        
+    },false);
+    
+    /*****************************************************/
+    
+    document.addEventListener('mousedown', function(e){
+        
+            img = new Image();
+            img.src = 'img/imgDD.png';
         
     },false);
     

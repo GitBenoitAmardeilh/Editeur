@@ -144,7 +144,7 @@ iframe{
     top:15px;
     z-index: 1;
     margin-left:82px;
-    height:400px;
+    padding:10px;
 }
 
 #headerLeftMenu #title{
@@ -166,7 +166,7 @@ iframe{
     float:right;
     height: inherit;
     margin:0;
-    width: 40px;
+    /* width: 40px; */
 }
 
 #headerLeftMenu #title a{

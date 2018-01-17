@@ -86,11 +86,11 @@ $namePage = 'Accueil';
                             </div>
                             
                             <div id="divDancingScriptRegular" class="divContainOptionPolice" draggable="true">
-                                <p id="ParaDancingScriptRegular" class="paraPolice">Bonjour je suis un paragraphe ayant la police DancingScriptRegular</p>
+                                <p id="ParaDancingScriptRegular">Bonjour je suis un paragraphe ayant la police DancingScriptRegular</p>
                             </div>
                             
                             <div id="divTimeNewRoman" class="divContainOptionPolice" draggable="true">
-                                <p id="ParaTimeNewRoman" class="paraPolice">Bonjour je suis un paragraphe ayant la police Time new roman</p>
+                                <p id="ParaTimeNewRoman">Bonjour je suis un paragraphe ayant la police Time new roman</p>
                             </div>
                             
                             <div>
@@ -98,7 +98,7 @@ $namePage = 'Accueil';
                             </div>
 
                             <div id="divArial" class="divContainOptionPolice" draggable="true">
-                                <p id="ParaArial" class="paraPolice">Aurevoir</p>
+                                <p id="ParaArial">Aurevoir</p>
                             </div>
                                 
 
@@ -190,7 +190,7 @@ $namePage = 'Accueil';
         <aside><iframe id="ifrm"></iframe></aside>
         
         <script src="js/javascript.js"></script>
-        <script src="js/menu.js"></script>
+        <script src="js/panelColor.js"></script>
         <script src="js/panelParam.js"></script>
         
     </body>
