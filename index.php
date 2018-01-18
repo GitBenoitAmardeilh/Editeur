@@ -187,7 +187,8 @@ $namePage = 'Accueil';
             
         </div>
         
-        <aside><iframe id="ifrm"></iframe></aside>
+        <aside><iframe id="ifrm" readonly="readonly"></iframe></aside>
+        <aside><iframe id="helpIfrm"></iframe></aside>
         
         <script src="js/javascript.js"></script>
         <script src="js/panelColor.js"></script>

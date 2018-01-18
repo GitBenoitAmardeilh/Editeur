@@ -1,6 +1,6 @@
 var ifrm = document.getElementById('ifrm').contentDocument;
-ifrm.oncontextmenu = new Function("return false");
-ifrm.designMode = 'on';
+
+var helpIfrm = document.getElementById('helpIfrm');
 
 const ID_DIV_IFRAME = 'divContainOptionIframe';
 const CLASS_DIV_MENU = 'divContainOptionPolice';
@@ -71,13 +71,29 @@ const DIV_MENU_LEFT_HEIGHT = document.getElementById('headerLeftMenu').offsetWid
 
     function listDivIframe(){
         
-        var arrayDivIframe = ifrm.getElementsByClassName(CLASS_DIV_MENU);
+        var arrayDivIframe = ifrm.getElementsByClassName(ID_DIV_IFRAME);
         
         for( var i = 0 ; i < arrayDivIframe.length ;i++){
             
             arrayDivIframe[i].addEventListener('click', function(e){
-
-                e.currentTarget.style.border = '1px solid blue';
+                
+                e.preventDefault;
+                
+                ifrm.body.appendChild(helpIfrm);
+                
+                var widthDivSelected = e.currentTarget.offsetWidth;
+                var heightDivSelected = e.currentTarget.offsetHeight;
+                
+                positionMouseInDiv( e );
+                
+                helpIfrm.style.width = widthDivSelected;
+                helpIfrm.style.height = heightDivSelected;
+                
+                helpIfrm.style.left = posImgX;
+                helpIfrm.style.top = posImgY;
+                
+            helpIfrm.style.display = 'block';
+                
 
             },false);   
             
@@ -106,9 +122,28 @@ const DIV_MENU_LEFT_HEIGHT = document.getElementById('headerLeftMenu').offsetWid
             
     }
     
-    function positionMouseInDiv( e , id ){
+    function positionMouseInDiv( e , id = null ){
         
-        posImgX = e.clientX - DIV_MENU_LEFT_HEIGHT - 11; // -1 est la marge du sous menu et - 10 le padding
+        var classCurrentDiv = e.currentTarget.getAttribute('class');
+
+        if(classCurrentDiv == ID_DIV_IFRAME){
+            
+            posImgX = e.clientX - ( e.clientX - e.currentTarget.offsetLeft );
+            posImgY = e.clientY - ( e.clientY - e.currentTarget.offsetTop );
+            
+        }
+        else{
+
+            posImgX = e.clientX - DIV_MENU_LEFT_HEIGHT - 11; // -1 est la marge du sous menu et - 10 le padding
+            posImgY = e.clientY - HEADER_HEIGHT - document.getElementById(id).offsetTop - 15;
+            
+        }
+            
+    }
+    
+    function positionMouseInDivIframe( e , id ){
+        
+        posImgX = e.clientX - DIV_MENU_LEFT_HEIGHT - 11; 
         posImgY = e.clientY - HEADER_HEIGHT - document.getElementById(id).offsetTop - 15;
             
     }
@@ -124,6 +159,7 @@ const DIV_MENU_LEFT_HEIGHT = document.getElementById('headerLeftMenu').offsetWid
     ifrm.addEventListener('dragover', function(e){
         
         positionMouseIframe( e );
+        ifrm.designMode = 'on';
         
     },false);
     
@@ -135,11 +171,12 @@ const DIV_MENU_LEFT_HEIGHT = document.getElementById('headerLeftMenu').offsetWid
         
         ifrm.body.appendChild(document.getElementById(data).cloneNode(true));
         
-        newIdDiv = ID_DIV_IFRAME+''+nbDivDrop
+        newIdDiv = ID_DIV_IFRAME+''+nbDivDrop;
+        ifrm.getElementById(data).setAttribute('class', ID_DIV_IFRAME);
         ifrm.getElementById(data).setAttribute('id', newIdDiv);
         nbDivDrop++;
            
-        ifrm.getElementById(newIdDiv).style.left = MouseXIframe - posImgX;
+        ifrm.getElementById(newIdDiv).style.left = MouseXIframe - posImgX - 1; // -1 pour la bordure
         ifrm.getElementById(newIdDiv).style.top = MouseYIframe - posImgY;
         
         listDivIframe();
@@ -152,6 +189,12 @@ const DIV_MENU_LEFT_HEIGHT = document.getElementById('headerLeftMenu').offsetWid
         
             img = new Image();
             img.src = 'img/imgDD.png';
+        
+    },false);
+    
+    document.addEventListener('click', function(e){
+        
+            helpIfrm.style.display = 'none';
         
     },false);
     
