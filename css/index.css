@@ -10,7 +10,7 @@ aside{
     text-align: center;
 }
 
-iframe{
+#ifrm{
     
     background-color: white;
     border:1px solid rgb(170,170,170);
@@ -74,7 +74,7 @@ iframe{
     display: inline-block;
 }
 
-/***********************************************/
+/*********************************************/
 
 #headerLeftMenu{
     
@@ -182,12 +182,4 @@ iframe{
 #headerLeftMenu #title #btnClose{
     border-radius: 0 10px 0 0;
     font-size: 22px;
-}
-
-/* ------------------------------------------------
-                Help iFrm
--------------------------------------------------*/
-
-#helpIfrm{
-    display: none; 
 }

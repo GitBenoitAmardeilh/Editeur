@@ -1,9 +1,3 @@
-<?php
-
-$namePage = 'Accueil';
-
-?>
-
 <html>
     <head>
         
@@ -12,6 +6,7 @@ $namePage = 'Accueil';
         <link rel="stylesheet" href="css/panelColor.css"/>
         <link rel="stylesheet" href="css/panelParam.css"/>
         <link rel="stylesheet" href="css/panelPolice.css"/>
+        <link rel="stylesheet" href="css/mouseoverEditeur.css"/>
         <link rel="stylesheet" href="css/police.css"/>
         
     </head>
@@ -32,7 +27,7 @@ $namePage = 'Accueil';
             </div>
 
             <div id="searchPage">
-                <p>Page : <?php  echo $namePage; ?></p>
+                <p>Page : Accueil</p>
             </div>
           
         </div>
@@ -187,12 +182,36 @@ $namePage = 'Accueil';
             
         </div>
         
-        <aside><iframe id="ifrm" readonly="readonly"></iframe></aside>
-        <aside><iframe id="helpIfrm"></iframe></aside>
+        <aside>
+            
+            <iframe id="ifrm" readonly="readonly"></iframe>
         
-        <script src="js/javascript.js"></script>
-        <script src="js/panelColor.js"></script>
-        <script src="js/panelParam.js"></script>
+        </aside>
+        
+        <aside id="main_container">
+            
+
+            <div id="click_mouse_blc">
+
+                <div id="div_size_right"><span></span></div>
+                <div id="div_size_bottom"><span></span></div>
+                <div id="div_size_left"><span></span></div>
+
+            </div>
+            
+            
+            <div id="mouseover_blc">
+
+                <span id="title_mouse_down">Paragraphe</span>
+
+            </div>
+                
+        
+        </aside>
+        
+        <script src="css/js/main.js"></script>
+        <script src="css/js/panelColor.js"></script>
+        <script src="css/js/panelParam.js"></script>
         
     </body>
 </html>

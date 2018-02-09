@@ -1,12 +1,14 @@
 var ifrm = document.getElementById('ifrm').contentDocument;
-
-var helpIfrm = document.getElementById('helpIfrm');
+var container_edition = document.getElementById('main_container');
+var focusValue = false;
 
 const ID_DIV_IFRAME = 'divContainOptionIframe';
 const CLASS_DIV_MENU = 'divContainOptionPolice';
 
-const HEADER_HEIGHT = document.getElementById('headerMainMenu').offsetHeight;
 const DIV_MENU_LEFT_HEIGHT = document.getElementById('headerLeftMenu').offsetWidth;
+
+const OFFTOP_IFRM = document.getElementById('ifrm').offsetTop;
+const OFFLEFT_IFRM = document.getElementById('ifrm').offsetLeft;
 
 /* -----------------------------------------------*/
 
@@ -75,31 +77,105 @@ const DIV_MENU_LEFT_HEIGHT = document.getElementById('headerLeftMenu').offsetWid
         
         for( var i = 0 ; i < arrayDivIframe.length ;i++){
             
-            arrayDivIframe[i].addEventListener('click', function(e){
+            arrayDivIframe[i].addEventListener('mouseover', function(e){
                 
-                e.preventDefault;
-                
-                ifrm.body.appendChild(helpIfrm);
-                
-                var widthDivSelected = e.currentTarget.offsetWidth;
-                var heightDivSelected = e.currentTarget.offsetHeight;
-                
-                positionMouseInDiv( e );
-                
-                helpIfrm.style.width = widthDivSelected;
-                helpIfrm.style.height = heightDivSelected;
-                
-                helpIfrm.style.left = posImgX;
-                helpIfrm.style.top = posImgY;
-                
-            helpIfrm.style.display = 'block';
-                
+                    
+                positionMouseIframe( e );
+                positionMouseInDivIframe( e , e.currentTarget.id );
+                addMenuEdition( e );
 
-            },false);   
+                focusValue = false;
+
+                hideSubMenu('mouseover_blc');
+                
+            },false);
             
         }
         
     }
+    
+    /*
+    ------------------------------------------------
+                CONTAINER MENU EDITION
+    -------------------------------------------------
+    |
+    | Celui-ci est positionné (fonction listDivIframe),
+    | Puis manupiler (Evènements ci-dessous)
+    |
+    */
+    
+
+    container_edition.addEventListener('mouseout', function(){
+
+            if(focusValue == false){
+                
+                hideMenuEdition();
+                
+            }
+
+    }, false);
+    
+    container_edition.addEventListener('click', function(e){
+        
+            hideSubMenu('click_mouse_blc');
+        
+            focusValue = true;
+
+    }, false);
+    
+    container_edition.addEventListener('dblclick', function(e){
+
+            /* A FINIR */
+
+    }, false);
+    
+    function addMenuEdition( e ){
+        
+        
+        document.getElementById('main_container').style.height = ifrm.getElementById( e.currentTarget.id ).offsetHeight;
+        document.getElementById('main_container').style.width = ifrm.getElementById( e.currentTarget.id ).offsetWidth;
+        
+        document.getElementById('main_container').style.left = e.screenX - posImgX + 1;
+        document.getElementById('main_container').style.top = (e.clientY + OFFTOP_IFRM) - posImgY;
+        
+        document.getElementById('main_container').style.visibility = 'visible';
+        
+    }
+    
+    function hideMenuEdition(){
+        
+        document.getElementById('main_container').style.visibility = 'hidden';
+        
+    }
+    
+    function hideSubMenu(nameSubMenu){
+
+        switch(nameSubMenu){
+                
+            case 'click_mouse_blc':
+                
+                document.getElementById('click_mouse_blc').style.display = 'block';
+                document.getElementById('mouseover_blc').style.display = 'none';
+                
+                break;
+                
+            case 'mouseover_blc':
+                
+                document.getElementById('click_mouse_blc').style.display = 'none';
+                document.getElementById('mouseover_blc').style.display = 'block';
+                
+                break;
+                
+            default:
+                
+                document.getElementById('click_mouse_blc').style.display = 'none';
+                document.getElementById('mouseover_blc').style.display = 'none';
+                
+                break;   
+        }
+        
+    }
+    
     
     /*------------------------------------------------
                     DRAG & DROP 
@@ -133,9 +209,9 @@ const DIV_MENU_LEFT_HEIGHT = document.getElementById('headerLeftMenu').offsetWid
             
         }
         else{
-
+            
             posImgX = e.clientX - DIV_MENU_LEFT_HEIGHT - 11; // -1 est la marge du sous menu et - 10 le padding
-            posImgY = e.clientY - HEADER_HEIGHT - document.getElementById(id).offsetTop - 15;
+            posImgY = e.clientY - document.getElementById(id).offsetTop - OFFTOP_IFRM;
             
         }
             
@@ -143,8 +219,8 @@ const DIV_MENU_LEFT_HEIGHT = document.getElementById('headerLeftMenu').offsetWid
     
     function positionMouseInDivIframe( e , id ){
         
-        posImgX = e.clientX - DIV_MENU_LEFT_HEIGHT - 11; 
-        posImgY = e.clientY - HEADER_HEIGHT - document.getElementById(id).offsetTop - 15;
+        posImgX = e.clientX - ifrm.getElementById(id).offsetLeft; 
+        posImgY = e.clientY - ifrm.getElementById(id).offsetTop;
             
     }
     
@@ -185,17 +261,18 @@ const DIV_MENU_LEFT_HEIGHT = document.getElementById('headerLeftMenu').offsetWid
     
     /*****************************************************/
     
+    ifrm.addEventListener('click', function(e){
+        
+        hideMenuEdition();
+        focusValue = false;
+        
+    },false);
+    
     document.addEventListener('mousedown', function(e){
         
             img = new Image();
             img.src = 'img/imgDD.png';
         
-    },false);
-    
-    document.addEventListener('click', function(e){
-        
-            helpIfrm.style.display = 'none';
-        
-    },false);
-    
+    },false); 
+
 })();

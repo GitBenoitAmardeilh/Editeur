@@ -1,0 +1,105 @@
+#main_container{
+    position: absolute;
+}
+
+#main_container:hover{
+    cursor: all-scroll;
+}
+
+#click_mouse_blc{
+    display: none;
+    width: 100%;
+    height: 100%;
+    
+    border:1px solid rgba(0,98,230,0.8);
+}
+
+#mouseover_blc{
+    display: none;
+    
+    width: 100%;
+    height: 100%;
+    border:1px solid rgba(0,98,230,0.2);
+}
+
+/*********************************************/
+
+#click_mouse_blc div{
+    
+    position: absolute;
+    
+    /*background-color: rgba(0,98,230,0.8);*/
+    
+}
+
+#click_mouse_blc span{
+    
+    position: relative;
+    display: block;
+    border: 1px solid rgba(0,98,230,0.8);
+    background-color: white;
+    border-radius: 50px;
+
+    width:5px;
+    height: 5px;
+}
+
+#click_mouse_blc #div_size_right{
+    
+    top:0;
+    left: 100%;
+    height: 100%;
+}
+
+#click_mouse_blc #div_size_bottom{
+    
+    top:100%;
+    left: 0;
+    width: 100%;
+}
+
+#click_mouse_blc #div_size_left{
+    
+    top:0;
+    left: -1px;
+    height: 100%;
+    
+}
+
+#click_mouse_blc #div_size_bottom span{
+    
+    left:50%;
+    top:-2px;
+}
+
+#click_mouse_blc #div_size_right span, #click_mouse_blc #div_size_left span{
+    
+    top:50%;
+    left:-2px;
+
+}
+
+#click_mouse_blc #div_size_bottom span:hover{
+    
+    cursor: ns-resize;
+    
+}
+
+#click_mouse_blc #div_size_right span:hover, #click_mouse_blc #div_size_left span:hover{
+    
+    cursor: ew-resize;
+
+}
+
+/*********************************************/
+
+#mouseover_blc span{
+    position: absolute;
+    top:-18px;
+    left: 0;
+
+    padding: 0 5px 0 5px;
+    background-color: rgba(0,98,230,0.3);
+    color:rgb(0,98,230);
+
+}
